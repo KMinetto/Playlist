@@ -5,12 +5,20 @@ import album.song.Song;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+/**
+ * class Album
+ */
 public class Album {
 
     private String name;
     private String artist;
     private ArrayList<Song> songs;
 
+    /**
+     * Album constructor
+     * @param name String
+     * @param artist String
+     */
     public Album(String name, String artist) {
         this.name = name;
         this.artist = artist;
@@ -44,6 +52,7 @@ public class Album {
             playList.add(songs.get(index));
             return true;
         }
+        System.out.println("There is no song with track number: " + trackNumber);
 
         return false;
     }
@@ -60,6 +69,7 @@ public class Album {
             playList.add(existingSong);
             return true;
         }
+        System.out.println("There is no song with title: " + title);
 
         return false;
     }
@@ -69,7 +79,7 @@ public class Album {
      * @param title String
      * @return Song
      */
-    public Song findSong(String title) {
+    private Song findSong(String title) {
         for (Song song : this.songs) {
             if (song.getTitle().equalsIgnoreCase(title)) {
                 return song;
